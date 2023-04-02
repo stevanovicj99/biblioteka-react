@@ -5,6 +5,7 @@ import Rent from "./pages/Rent";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [books, setBooks] = useState([
@@ -84,6 +85,96 @@ const App = () => {
         "https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781408855713.jpg",
       isRented: false,
     },
+    {
+      id: 8,
+      title: "The Lord of the Rings: The Fellowship of the Ring",
+      author: "J. R. R. Tolkien",
+      description:
+        "The Fellowship of the Ring, also known as the Company of the Ring, was formed from nine members of the Free peoples during the War of the Ring...",
+      imgURL:
+        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654215925i/61215351.jpg",
+      isRented: false,
+    },
+    {
+      id: 9,
+      title: "The Lord of the Rings: The Two Towers",
+      author: "J. R. R. Tolkien",
+      description:
+        "The Two Towers opens with the disintegration of the Fellowship, as Merry and Pippin are taken captive by Orcs after the death of Boromir in battle...",
+      imgURL:
+        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654216149i/61215372.jpg",
+      isRented: false,
+    },
+    {
+      id: 10,
+      title: "The Lord of the Rings: The Return of the King",
+      author: "J. R. R. Tolkien",
+      description:
+        "While the evil might of the Dark Lord Sauron swarms out to conquer all Middle-earth, Frodo and Sam struggle deep into Mordor, seat of Sauron's power...",
+      imgURL:
+        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654216226i/61215384.jpg",
+      isRented: false,
+    },
+    {
+      id: 11,
+      title: "A Song of Ice and Fire: A Game of Thrones",
+      author: "George R. R. Martin",
+      description:
+        "While the evil might of the Dark Lord Sauron swarms out to conquer all Middle-earth, Frodo and Sam struggle deep into Mordor, seat of Sauron's power...",
+      imgURL:
+        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/91dSMhdIzTL.jpg",
+      isRented: false,
+    },
+    {
+      id: 12,
+      title: "A Song of Ice and Fire: A Clash of Kings",
+      author: "George R. R. Martin",
+      description:
+        "Clash of Kings depicts the Seven Kingdoms of Westeros in civil war, while the Night's Watch mounts a reconnaissance to investigate the mysterious people known as wildlings...",
+      imgURL:
+        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/A1ExVQ-oFNL.jpg",
+      isRented: false,
+    },
+    {
+      id: 13,
+      title: "A Song of Ice and Fire: A Storm of Swords",
+      author: "George R. R. Martin",
+      description:
+        "A Storm of Swords continues the story where A Clash of Kings ended. The novel describes the increasingly vicious War of Five Kings in Westeros...",
+      imgURL:
+        "https://english-book.rs/wp-content/uploads/2022/04/9780006479901-p-16486_600_840px.jpg",
+      isRented: false,
+    },
+    {
+      id: 14,
+      title: "A Song of Ice and Fire: A Feast for Crows",
+      author: "George R. R. Martin",
+      description:
+        "A Feast for Crows focuses on the Lannister family's continuing consolidation of power following victory in the “War of the Five Kings.”... ",
+      imgURL:
+        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71C3XvEayXL.jpg",
+      isRented: false,
+    },
+    {
+      id: 15,
+      title: "A Song of Ice and Fire: A Dance with Dragons",
+      author: "George R. R. Martin",
+      description:
+        "In the aftermath of a colossal battle, the future of the Seven Kingdoms hangs in the balance—beset by newly emerging threats from every direction...",
+      imgURL:
+        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/91gJgXvn+jL.jpg",
+      isRented: false,
+    },
+    {
+      id: 16,
+      title: "The Little Prince",
+      author: "Antoine de Saint-Exupéry",
+      description:
+        "The Little Prince is an honest and beautiful story about loneliness, friendship, sadness, and love. The prince is a small boy from a tiny planet, who travels the universe",
+      imgURL:
+        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71OZY035QKL._AC_UF1000,1000_QL80_.jpg",
+      isRented: false,
+    },
   ]);
   const rentBook = (id) => {
     setBooks(
@@ -96,13 +187,26 @@ const App = () => {
     );
   };
 
+  const search = (e) => {
+    setBooks(
+      books.filter((book) => {
+        return book.title.toLowerCase().includes(e.target.value.toLowerCase())
+          ? true
+          : false;
+      })
+    );
+  };
+
   return (
     <div>
       <NavBar
         numberOfRentedBooks={books.filter((book) => book.isRented).length}
       />
       <Routes>
-        <Route path="/" element={<Home books={books} rentBook={rentBook} />} />
+        <Route
+          path="/"
+          element={<Home books={books} rentBook={rentBook} search={search} />}
+        />
         <Route
           path="/rent"
           element={
@@ -113,6 +217,7 @@ const App = () => {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 };

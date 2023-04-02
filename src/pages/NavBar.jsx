@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsBook } from "react-icons/bs";
+import { GiSpellBook } from "react-icons/gi";
 
 function NavBar({ numberOfRentedBooks }) {
   return (
     <nav className="navBar">
       <Link to="/" className="site-title">
+        <GiSpellBook className="title-logo" />
         Library
       </Link>
       <ul>

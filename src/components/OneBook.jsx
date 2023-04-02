@@ -17,6 +17,7 @@ const OneBook = ({ book, rentBook }) => {
         <Button
           variant="primary"
           className="card-button"
+          id="card-button-id"
           onClick={() => rentBook(book.id)}
         >
           {!book.isRented ? "Rent" : "Return"}

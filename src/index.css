@@ -17,7 +17,7 @@ body {
 .site-title {
   font-size: 3rem;
   margin-left: 3rem;
-  font-style: italic;
+  font-family: cursive;
 }
 
 .navBar ul {
@@ -46,14 +46,18 @@ body {
   margin-right: 2rem;
 }
 
+.title-logo {
+  margin-right: 1rem;
+}
+
 .all-books {
-  background-color: azure;
+  background-color: ivory;
 }
 
 /*cards*/
 
 .col {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 }
 
 .card-button {
@@ -65,6 +69,12 @@ body {
   background-color: #cc8788;
 }
 
+#card-button-id:active,
+#card-button-id:focus {
+  background-color: #cc8788;
+  border: #cc8788;
+}
+
 .author {
   font-size: 1rem;
 }
@@ -72,4 +82,21 @@ body {
 .rent-icon {
   font-size: 1.75rem;
   font-weight: bolder;
+}
+
+/*search*/
+
+.mb-3 {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  width: 20rem;
+}
+
+#basic-addon1 {
+  background-color: #e68f93;
+  color: white;
+}
+
+.input-search {
+  background-color: transparent;
 }
