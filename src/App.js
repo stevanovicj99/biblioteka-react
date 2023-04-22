@@ -6,8 +6,11 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer";
+import About from "./pages/About";
+import { useEffect } from "react";
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState(1);
   const [books, setBooks] = useState([
     {
       id: 1,
@@ -130,7 +133,7 @@ const App = () => {
       title: "A Song of Ice and Fire: A Clash of Kings",
       author: "George R. R. Martin",
       description:
-        "Clash of Kings depicts the Seven Kingdoms of Westeros in civil war, while the Night's Watch mounts a reconnaissance to investigate the mysterious people known as wildlings...",
+        "Clash of Kings depicts the Seven Kingdoms of Westeros in civil war, while the Night's Watch mounts a reconnaissance to investigate...",
       imgURL:
         "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/A1ExVQ-oFNL.jpg",
       isRented: false,
@@ -170,7 +173,7 @@ const App = () => {
       title: "The Little Prince",
       author: "Antoine de Saint-Exupéry",
       description:
-        "The Little Prince is an honest and beautiful story about loneliness, friendship, sadness, and love. The prince is a small boy from a tiny planet, who travels the universe",
+        "The Little Prince is an honest and beautiful story about loneliness, friendship, sadness, and love. The prince is a small boy from a tiny planet, who travels the universe...",
       imgURL:
         "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71OZY035QKL._AC_UF1000,1000_QL80_.jpg",
       isRented: false,
@@ -188,6 +191,7 @@ const App = () => {
   };
 
   const search = (e) => {
+    setCurrentPage(1);
     setBooks(
       books.filter((book) => {
         return book.title.toLowerCase().includes(e.target.value.toLowerCase())
@@ -205,7 +209,19 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<Home books={books} rentBook={rentBook} search={search} />}
+          element={
+            <>
+              <Home
+                books={books}
+                rentBook={rentBook}
+                search={search}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                numberOfBooks={books.length}
+              />
+              <Footer />
+            </>
+          }
         />
         <Route
           path="/rent"
@@ -216,8 +232,16 @@ const App = () => {
             />
           }
         />
+        <Route
+          path="/about"
+          element={
+            <>
+              <About />
+              <Footer />
+            </>
+          }
+        ></Route>
       </Routes>
-      <Footer />
     </div>
   );
 };

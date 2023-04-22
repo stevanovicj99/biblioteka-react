@@ -58,6 +58,7 @@ body {
 
 .col {
   margin-top: 1.5rem;
+  text-align: justify;
 }
 
 .card-button {
@@ -99,4 +100,85 @@ body {
 
 .input-search {
   background-color: transparent;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#footer {
+  margin-top: 2rem;
+}
+
+.text-center,
+.text-lg-left {
+  background-color: #e68f93;
+}
+
+.about-page {
+  background-color: ivory;
+}
+
+.about-par {
+  text-align: justify;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.about-title {
+  text-align: center;
+  padding-top: 3rem;
+  font-style: italic;
+}
+
+.center-about {
+  padding: 3rem;
+}
+
+.about-pic {
+  height: 35rem;
+  width: 25rem;
+
+  position: absolute;
+  top: 16.8rem;
+  right: 1rem;
+}
+.about-par {
+  display: flex;
+  flex-direction: row;
+  margin-right: 23rem;
+  padding-right: 2rem;
+}
+
+#quote-par {
+  font-style: italic;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+.active > .page-link {
+  background-color: gainsboro;
+  color: hsl(359, 32%, 57%);
+  border-color: gainsboro;
+}
+.pag-item,
+.pag-item:hover {
+  color: hsl(359, 32%, 57%);
+}
+
+.on-the-top {
+  text-decoration: none;
+  font-size: 1.7rem;
+  text-align: center;
+  color: white;
+}
+
+.on-the-top:hover {
+  color: beige;
 }
