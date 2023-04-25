@@ -29,9 +29,14 @@ const Home = ({
   useEffect(() => {
     return () => {
       debouncedResults.cancel();
-      scrollToTop();
     };
   });
+
+  useEffect(() => {
+    return () => {
+      scrollToTop();
+    };
+  }, [currentPage]);
 
   return (
     <div className="all-books">
