@@ -19,12 +19,12 @@ const Home = ({
     return debouce(search, 300);
   }, []);
 
-  function scrollToTop() {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  }
+  };
 
   useEffect(() => {
     return () => {
@@ -50,7 +50,7 @@ const Home = ({
         {books
           .filter(
             (book, index) =>
-              (index < currentPage * 10) & (index >= currentPage * 10 - 10)
+              (index >= currentPage * 10 - 10) & (index < currentPage * 10)
           )
           .map((book) => (
             <OneBook book={book} key={book.id} rentBook={rentBook} />

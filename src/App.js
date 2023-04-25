@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./pages/Home";
-import NavBar from "./pages/NavBar";
+import NavBar from "./components/NavBar";
 import Rent from "./pages/Rent";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -179,6 +179,7 @@ const App = () => {
       isRented: false,
     },
   ]);
+
   const rentBook = (id) => {
     setBooks(
       books.map((book) => {
